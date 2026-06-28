@@ -1,0 +1,34 @@
+name: Publish new posts to Dev.to
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**.md'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get new or modified posts
+        id: posts
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- '_posts/*.md' | tr '\n' ' ')
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "Detected: $FILES"
+
+      - name: Publish to Dev.to
+        if: steps.posts.outputs.files != ''
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          BLOG_URL: https://xlinkwork-glitch.github.io
+        run: |
+          for file in ${{ steps.posts.outputs.files }}; do
+            echo "Processing: $file"
+            node .github/scripts/publish-devto.js "$file"
+          done
