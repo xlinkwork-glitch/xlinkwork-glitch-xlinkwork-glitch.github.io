@@ -1,0 +1,199 @@
+---
+layout: default
+---
+
+{% assign lang = page.lang | default: 'zh' %}
+{% assign lang_posts = site.posts | where: "lang", lang %}
+
+<!-- Breadcrumb JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "{{ site.title }}",
+      "item": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ site.url }}{{ page.url }}"
+    }
+  ]
+}
+</script>
+
+{% if page.faq %}
+<!-- FAQPage JSON-LD：供 Google AI Overviews / ChatGPT / Perplexity 提取 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in page.faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.howto %}
+<!-- HowTo JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": {{ page.howto.name | jsonify }},
+  "description": {{ page.howto.description | jsonify }},
+  "step": [
+    {% for step in page.howto.steps %}
+    {
+      "@type": "HowToStep",
+      "name": {{ step.name | jsonify }},
+      "text": {{ step.text | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.speakable_selector %}
+<!-- Speakable schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": {{ page.speakable_selector | jsonify }}
+  },
+  "url": "{{ site.url }}{{ page.url }}"
+}
+</script>
+{% endif %}
+
+<div class="post-layout">
+  <article class="post" itemscope itemtype="https://schema.org/Article">
+    {% if page.image %}
+    <div class="post__cover">
+      <img data-src="{{ page.image | relative_url }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'/%3E" alt="{{ page.title }}" width="1200" height="630" itemprop="image">
+    </div>
+    {% endif %}
+
+    <header class="post__header">
+      <h1 class="post__title" itemprop="headline">{{ page.title }}</h1>
+      <div class="post__meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: '%Y-%m-%d' }}</time>{% if page.categories.size > 0 %} · {{ page.categories | join: ' / ' }}{% endif %}
+        <span itemprop="author" itemscope itemtype="https://schema.org/Organization">
+          <meta itemprop="name" content="{{ site.author.name }}">
+        </span>
+      </div>
+    </header>
+
+    <div class="post__content" itemprop="articleBody">
+      {{ content }}
+    </div>
+
+    <footer class="post__footer">
+      {% if lang == 'en' %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/en/">🚀 Try TongBao VPN · Stable Office Lines & AI Access</a>
+        <a class="btn btn--ghost" href="{{ '/en/' | relative_url }}">← Back to Home</a>
+      {% elsif lang == 'vi' %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/vi/">🚀 Dùng thử TongBao VPN · Đường truyền văn phòng ổn định</a>
+        <a class="btn btn--ghost" href="{{ '/vi/' | relative_url }}">← Trang Chủ</a>
+      {% elsif lang == 'ja' %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/ja/">🚀 通宝VPNを試す · 安定したオフィス専用回線</a>
+        <a class="btn btn--ghost" href="{{ '/ja/' | relative_url }}">← ホームへ</a>
+      {% elsif lang == 'ko' %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/ko/">🚀 TongBao VPN 시작 · 안정적인 전용 오피스 회선</a>
+        <a class="btn btn--ghost" href="{{ '/ko/' | relative_url }}">← 홈으로</a>
+      {% elsif lang == 'tr' %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/tr/">🚀 TongBao VPN'i Dene · Kararlı Ofis Hattı</a>
+        <a class="btn btn--ghost" href="{{ '/tr/' | relative_url }}">← Ana Sayfa</a>
+      {% else %}
+        <a class="btn btn--primary" href="https://www.tongbaovpn.com/zh/">🚀 立即试用通宝VPN · 办公专线稳定加速</a>
+        <a class="btn btn--ghost" href="{{ '/' | relative_url }}">← 返回首页</a>
+      {% endif %}
+    </footer>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar__section">
+      <h3 class="sidebar__title">
+        {% case lang %}
+          {% when 'en' %}Recommended
+          {% when 'vi' %}Bài viết đề xuất
+          {% when 'ja' %}おすすめ記事
+          {% when 'ko' %}추천 글
+          {% when 'tr' %}Önerilen Yazılar
+          {% else %}推荐阅读
+        {% endcase %}
+      </h3>
+      <ul class="sidebar__list">
+        {% assign count = 0 %}
+        {% for post in lang_posts %}
+          {% if post.url != page.url and count < 5 %}
+            <li class="sidebar__item">
+              <a class="sidebar__link" href="{{ post.url | relative_url }}">
+                {% if post.image %}
+                <img class="sidebar__thumb" data-src="{{ post.image | relative_url }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 210'/%3E" alt="{{ post.title }}" width="400" height="210">
+                {% endif %}
+                <div class="sidebar__text">
+                  <span class="sidebar__link-title">{{ post.title }}</span>
+                  <time class="sidebar__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+                </div>
+              </a>
+            </li>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="sidebar__section sidebar__cta">
+      <h3 class="sidebar__title">
+        {% case lang %}
+          {% when 'en' %}Try TongBao VPN
+          {% when 'vi' %}Dùng thử TongBao VPN
+          {% when 'ja' %}通宝VPNを試す
+          {% when 'ko' %}TongBao VPN 체험
+          {% when 'tr' %}TongBao VPN'i Deneyin
+          {% else %}立即试用通宝VPN
+        {% endcase %}
+      </h3>
+      <p class="sidebar__cta-text">
+        {% case lang %}
+          {% when 'en' %}Dedicated office lines, AI-optimized routing, global access.
+          {% when 'vi' %}Đường truyền văn phòng chuyên dụng, tối ưu AI, kết nối toàn cầu.
+          {% when 'ja' %}オフィス専用回線・AI 最適化ルーティング・グローバルアクセス。
+          {% when 'ko' %}전용 오피스 회선, AI 최적화 라우팅, 글로벌 연결.
+          {% when 'tr' %}Özel ofis hatları, AI optimize yönlendirme, küresel erişim.
+          {% else %}办公专线 + AI 智能路由，跨境工作稳稳的。
+        {% endcase %}
+      </p>
+      <a class="btn btn--primary sidebar__cta-btn" href="https://www.tongbaovpn.com/{% if lang != 'zh' %}{{ lang }}/{% else %}zh/{% endif %}">
+        {% case lang %}
+          {% when 'en' %}Get Started →
+          {% when 'vi' %}Bắt đầu →
+          {% when 'ja' %}今すぐ始める →
+          {% when 'ko' %}시작하기 →
+          {% when 'tr' %}Başla →
+          {% else %}立即开始 →
+        {% endcase %}
+      </a>
+    </div>
+  </aside>
+</div>

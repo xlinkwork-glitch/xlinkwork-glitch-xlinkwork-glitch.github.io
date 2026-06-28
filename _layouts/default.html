@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% assign lang = page.lang | default: 'zh' %}
+{% if lang == 'ja' %}{% assign html_lang = 'ja' %}
+{% elsif lang == 'ko' %}{% assign html_lang = 'ko' %}
+{% elsif lang == 'vi' %}{% assign html_lang = 'vi' %}
+{% elsif lang == 'tr' %}{% assign html_lang = 'tr' %}
+{% elsif lang == 'en' %}{% assign html_lang = 'en' %}
+{% else %}{% assign html_lang = 'zh-CN' %}{% endif %}
+<html lang="{{ html_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/tongbaovpn-logo.svg' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% feed_meta %}
+  {% seo %}
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="zh" href="https://xlinkwork-glitch.github.io/" />
+  <link rel="alternate" hreflang="en" href="https://xlinkwork-glitch.github.io/en/" />
+  <link rel="alternate" hreflang="vi" href="https://xlinkwork-glitch.github.io/vi/" />
+  <link rel="alternate" hreflang="ja" href="https://xlinkwork-glitch.github.io/ja/" />
+  <link rel="alternate" hreflang="ko" href="https://xlinkwork-glitch.github.io/ko/" />
+  <link rel="alternate" hreflang="tr" href="https://xlinkwork-glitch.github.io/tr/" />
+  <link rel="alternate" hreflang="x-default" href="https://xlinkwork-glitch.github.io/en/" />
+
+  <!-- JSON-LD -->
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {% if page.image %}"image": "https://xlinkwork-glitch.github.io{{ page.image }}",{% endif %}
+    "author": { "@type": "Organization", "name": "TongBao VPN" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TongBao VPN",
+      "logo": { "@type": "ImageObject", "url": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.svg" }
+    },
+    "description": {{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }},
+    "mainEntityOfPage": "https://xlinkwork-glitch.github.io{{ page.url }}"
+  }
+  </script>
+  {% elsif page.layout == 'home' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TongBao VPN",
+    "url": "https://www.tongbaovpn.com",
+    "logo": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.svg",
+    "sameAs": ["https://xlinkwork-glitch.github.io"]
+  }
+  </script>
+  {% endif %}
+
+  <script src="{{ '/assets/js/lazy-load.js' | relative_url }}" defer></script>
+  <style>@media(prefers-color-scheme:dark){:root{--bg:#0f1525;--fg:#c7d2e6;--muted:#92a0bb;--heading:#eaf0fb;--accent:#7db0ff;--accent-2:#4fd6ac;--card:#16203a;--border:#27324d;--header-bg:rgba(11,17,32,.9);--code-bg:#16203a;--shadow:0 10px 30px rgba(0,0,0,.35)}}</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      {% if lang == 'zh' or lang == nil %}{% assign brand_home = '/' %}
+      {% else %}{% assign brand_home = lang | prepend: '/' | append: '/' %}{% endif %}
+      <a class="brand" href="{{ brand_home | relative_url }}">
+        <img class="brand__logo" src="{{ '/assets/images/tongbaovpn-logo.svg' | relative_url }}" alt="通宝VPN" width="34" height="34">
+        <span class="brand__name">通宝VPN</span>
+      </a>
+      <div class="site-nav-wrap">
+        <nav class="site-nav">
+          {% assign nav_items = site.data.navigation[lang] | default: site.data.navigation.zh %}
+          {% for item in nav_items %}
+            <a href="{{ item.url }}"{% if item.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a>
+          {% endfor %}
+        </nav>
+        <div class="lang-switch">
+          <div class="lang-dropdown">
+            <button class="lang-dropdown__btn" aria-label="Switch language">
+              {% case lang %}
+                {% when 'en' %}🌐 EN
+                {% when 'vi' %}🌐 Tiếng Việt
+                {% when 'ja' %}🌐 日本語
+                {% when 'ko' %}🌐 한국어
+                {% when 'tr' %}🌐 Türkçe
+                {% else %}🌐 中文
+              {% endcase %}
+              <span class="lang-dropdown__arrow">▾</span>
+            </button>
+            <ul class="lang-dropdown__menu">
+              <li><a href="/" {% if lang == 'zh' %}class="active"{% endif %}>🇨🇳 中文</a></li>
+              <li><a href="/en/" {% if lang == 'en' %}class="active"{% endif %}>🇺🇸 English</a></li>
+              <li><a href="/vi/" {% if lang == 'vi' %}class="active"{% endif %}>🇻🇳 Tiếng Việt</a></li>
+              <li><a href="/ja/" {% if lang == 'ja' %}class="active"{% endif %}>🇯🇵 日本語</a></li>
+              <li><a href="/ko/" {% if lang == 'ko' %}class="active"{% endif %}>🇰🇷 한국어</a></li>
+              <li><a href="/tr/" {% if lang == 'tr' %}class="active"{% endif %}>🇹🇷 Türkçe</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      {% if lang == 'en' %}
+        <p class="site-footer__brand">TongBao VPN · Dedicated Office Lines · AI Acceleration · Global Access</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'vi' %}
+        <p class="site-footer__brand">TongBao VPN · Đường truyền văn phòng chuyên dụng · Tăng tốc AI · Kết nối toàn cầu</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/vi/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'ja' %}
+        <p class="site-footer__brand">通宝VPN · オフィス専用回線 · AI 高速化 · グローバルアクセス</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/ja/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'ko' %}
+        <p class="site-footer__brand">TongBao VPN · 전용 오피스 회선 · AI 가속 · 글로벌 연결</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/ko/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'tr' %}
+        <p class="site-footer__brand">TongBao VPN · Özel Ofis Hattı · AI Hızlandırma · Küresel Erişim</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/tr/">www.tongbaovpn.com</a></p>
+      {% else %}
+        <p class="site-footer__brand">通宝VPN · 办公专线加速 · AI 全速畅连 · 全球皆可触达</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} 通宝VPN · <a href="https://www.tongbaovpn.com/zh/">www.tongbaovpn.com</a></p>
+      {% endif %}
+    </div>
+  </footer>
+</body>
+</html>

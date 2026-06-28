@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xlinkwork-glitch.github.io/sitemap.xml

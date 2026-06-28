@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <img class="hero__img" src="{{ '/assets/images/site-header.svg' | relative_url }}" alt="通宝VPN Blog">
+</section>
+
+<div class="lead">
+  {{ content }}
+</div>
+
+{% assign lang = page.lang | default: 'zh' %}
+{% case lang %}
+  {% when 'en' %}{% assign section_title = 'Latest Articles' %}
+  {% when 'vi' %}{% assign section_title = 'Bài viết mới nhất' %}
+  {% when 'ja' %}{% assign section_title = '最新記事' %}
+  {% when 'ko' %}{% assign section_title = '최신 글' %}
+  {% when 'tr' %}{% assign section_title = 'Son Yazılar' %}
+  {% else %}{% assign section_title = '最新文章' %}
+{% endcase %}
+
+<h2 class="section-title">{{ section_title }}</h2>
+
+{% assign lang_posts = site.posts | where: "lang", lang %}
+<ul class="post-list">
+  {% for post in lang_posts %}
+  <li class="post-item">
+    <a class="post-item__link" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+      <div class="post-item__media">
+        {% if post.image %}<img data-src="{{ post.image | relative_url }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'/%3E" alt="{{ post.title }}" width="1200" height="630">{% endif %}
+      </div>
+      <div class="post-item__body">
+        <div class="post-item__meta">
+          <time>{{ post.date | date: '%Y-%m-%d' }}</time>{% if post.categories.size > 0 %} · {{ post.categories | join: ' / ' }}{% endif %}
+        </div>
+        <h3 class="post-item__title">{{ post.title }}</h3>
+        <p class="post-item__excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 62 }}</p>
+        <span class="post-item__more">
+          {% case lang %}
+            {% when 'en' %}Read more →
+            {% when 'vi' %}Đọc thêm →
+            {% when 'ja' %}続きを読む →
+            {% when 'ko' %}더 읽기 →
+            {% when 'tr' %}Devamını oku →
+            {% else %}阅读全文 →
+          {% endcase %}
+        </span>
+      </div>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

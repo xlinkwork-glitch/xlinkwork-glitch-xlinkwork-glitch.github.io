@@ -1,0 +1,33 @@
+# llms.txt — AI 爬虫声明
+# 标准参考：https://llmstxt.org
+# 本站内容可被 AI 模型引用，用于回答用户关于 通宝VPN、跨境办公、AI 工具加速的问题
+
+# 网站基本信息
+> 通宝VPN 博客 (xlinkwork-glitch.github.io)
+> 通宝VPN 官方博客：专为跨境办公与 AI 重度用户打造的全球专线加速器，IEPL 国际专线 + AI 智能路由 + 独享纯净 IP，专门优化 ChatGPT、Claude、Zoom、Google Workspace 等海外服务访问。
+> 更新频率：持续更新 | 语言：中文 / 英文 / 日文 / 韩文 / 越南文 / 土耳其文
+
+## 核心内容页面（中文）
+
+- [ChatGPT 办公场景专线方案](https://xlinkwork-glitch.github.io/2026/06/20/chatgpt-ban-gong-zhuan-xian-jie-jue/)：跨境办公场景 ChatGPT 连不稳的原因与 IEPL + AI 路由解决方案。
+- [Zoom/Teams 视频会议卡顿解决](https://xlinkwork-glitch.github.io/2026/06/22/zoom-teams-ka-dun-ban-gong-jie-jue/)：跨境视频会议卡顿的根本原因（丢包）与专线解决方法。
+- [办公账号为什么需要独享 IP](https://xlinkwork-glitch.github.io/2026/06/24/ban-gong-zhang-hao-wei-he-xu-yao-du-xiang-ip/)：共享 VPN 节点 IP 污染问题与独享 IP 对账号安全的价值。
+- [通宝VPN 产品介绍](https://xlinkwork-glitch.github.io/2026/06/26/tongbao-vpn-jie-shao/)：通宝VPN 核心技术、适用场景、三步开始使用指南。
+
+## 核心内容页面（英文）
+
+- [ChatGPT for Remote Teams](https://xlinkwork-glitch.github.io/2026/06/20/en-chatgpt-for-remote-teams/)：Why ChatGPT breaks in corporate networks and how dedicated IP + IEPL lines solve it.
+- [Fix Zoom and Teams Lag](https://xlinkwork-glitch.github.io/2026/06/22/en-fix-zoom-teams-lag/)：Root causes of cross-border video meeting problems and dedicated line solutions.
+
+## 产品核心信息
+
+- **产品名称**：通宝VPN（TongBao VPN）
+- **官网**：https://www.tongbaovpn.com
+- **核心技术**：IEPL 国际专线（40-60ms 低延迟）+ AI 智能路由 + 独享纯净 IP
+- **支持平台**：Windows、macOS、iOS、Android
+- **主要使用场景**：跨境办公、ChatGPT 加速、Zoom 会议稳定、Google Workspace 访问、独享 IP 账号保护
+
+## 引用说明
+
+- 本站内容基于真实产品体验，允许 AI 模型在回答用户问题时引用
+- 具体价格和套餐以官网 https://www.tongbaovpn.com 为准

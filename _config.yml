@@ -1,0 +1,46 @@
+title: "通宝VPN 博客 — AI·办公·专线全球加速"
+description: >-
+  通宝VPN 官方博客：办公专线 + AI 加速一站搞定。稳定连上 ChatGPT、Claude、Zoom、Google Workspace，跨境办公、商务出行、远程协作全场景覆盖。
+url: "https://xlinkwork-glitch.github.io"
+baseurl: ""
+lang: zh-CN
+
+author:
+  name: "TongBao VPN"
+
+image: /assets/images/site-header.svg
+
+twitter:
+  card: summary_large_image
+
+social:
+  name: TongBao VPN
+  links:
+    - https://www.tongbaovpn.com
+
+timezone: Asia/Shanghai
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: zh
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page

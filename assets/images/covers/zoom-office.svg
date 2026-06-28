@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0c1428"/><stop offset="1" stop-color="#0a1f3a"/></linearGradient>
+    <radialGradient id="glow" cx="0.15" cy="0.85" r="0.9"><stop offset="0" stop-color="#0e9f6e" stop-opacity="0.38"/><stop offset="1" stop-color="#0e9f6e" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#ffffff" stroke-opacity="0.045"><path d="M0 158 H1200 M0 316 H1200 M0 474 H1200 M300 0 V630 M600 0 V630 M900 0 V630"/></g>
+  <g transform="translate(80,84)">
+    <rect rx="21" width="230" height="42" fill="#0e9f6e" fill-opacity="0.14" stroke="#0e9f6e" stroke-opacity="0.5"/>
+    <circle cx="28" cy="21" r="8" fill="#0e9f6e"/>
+    <text x="48" y="28" fill="#bff3e2" font-size="19" font-weight="700">使用教程 · 视频会议</text>
+  </g>
+  <text x="80" y="278" fill="#ffffff" font-size="68" font-weight="800">Zoom / Teams 卡顿</text>
+  <text x="80" y="360" fill="#cdd9f2" font-size="44" font-weight="700">跨境会议专线解决方案</text>
+  <text x="80" y="438" fill="#8ea4ca" font-size="26">办公专线直连，视频流畅不卡顿</text>
+  <g transform="translate(80,486)">
+    <rect rx="22" width="300" height="44" fill="#1a56db" fill-opacity="0.14" stroke="#1a56db" stroke-opacity="0.55"/>
+    <text x="24" y="29" fill="#dce6ff" font-size="20" font-weight="700">🚀 立即试用通宝VPN</text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+zh:
+  - title: 首页
+    url: /
+  - title: 关于
+    url: /about/
+  - title: 立即试用
+    url: https://www.tongbaovpn.com/zh/
+
+en:
+  - title: Home
+    url: /en/
+  - title: About
+    url: /about/
+  - title: Get Started
+    url: https://www.tongbaovpn.com/
+
+vi:
+  - title: Trang chủ
+    url: /vi/
+  - title: Giới thiệu
+    url: /about/
+  - title: Dùng thử
+    url: https://www.tongbaovpn.com/vi/
+
+ja:
+  - title: ホーム
+    url: /ja/
+  - title: About
+    url: /about/
+  - title: 今すぐ試す
+    url: https://www.tongbaovpn.com/ja/
+
+ko:
+  - title: 홈
+    url: /ko/
+  - title: 소개
+    url: /about/
+  - title: 시작하기
+    url: https://www.tongbaovpn.com/ko/
+
+tr:
+  - title: Ana Sayfa
+    url: /tr/
+  - title: Hakkında
+    url: /about/
+  - title: Başla
+    url: https://www.tongbaovpn.com/tr/
