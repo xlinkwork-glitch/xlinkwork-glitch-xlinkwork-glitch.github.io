@@ -10,8 +10,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/images/tongbaovpn-logo.svg' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/tongbaovpn-logo.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% feed_meta %}
   {% seo %}
@@ -39,7 +39,7 @@
     "publisher": {
       "@type": "Organization",
       "name": "TongBao VPN",
-      "logo": { "@type": "ImageObject", "url": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.svg" }
+      "logo": { "@type": "ImageObject", "url": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.png" }
     },
     "description": {{ page.description | default: page.excerpt | strip_html | truncate: 160 | jsonify }},
     "mainEntityOfPage": "https://xlinkwork-glitch.github.io{{ page.url }}"
@@ -52,7 +52,7 @@
     "@type": "Organization",
     "name": "TongBao VPN",
     "url": "https://www.tongbaovpn.com",
-    "logo": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.svg",
+    "logo": "https://xlinkwork-glitch.github.io/assets/images/tongbaovpn-logo.png",
     "sameAs": ["https://xlinkwork-glitch.github.io"]
   }
   </script>
@@ -67,7 +67,7 @@
       {% if lang == 'zh' or lang == nil %}{% assign brand_home = '/' %}
       {% else %}{% assign brand_home = lang | prepend: '/' | append: '/' %}{% endif %}
       <a class="brand" href="{{ brand_home | relative_url }}">
-        <img class="brand__logo" src="{{ '/assets/images/tongbaovpn-logo.svg' | relative_url }}" alt="通宝VPN" width="34" height="34">
+        <img class="brand__logo" src="{{ '/assets/images/tongbaovpn-logo.png' | relative_url }}" alt="通宝VPN" width="34" height="34">
         <span class="brand__name">通宝VPN</span>
       </a>
       <div class="site-nav-wrap">
