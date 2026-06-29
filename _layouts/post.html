@@ -131,6 +131,75 @@ layout: default
   </article>
 
   <aside class="sidebar">
+    <!-- CTA card: product intro first -->
+    <div class="sidebar__section sidebar__cta">
+      <div class="cta-brand">
+        <img class="cta-brand__logo" src="{{ '/assets/images/tongbaovpn-logo.png' | relative_url }}" alt="通宝VPN" width="38" height="38">
+        <span class="cta-brand__name">
+          {% case lang %}{% when 'ja' %}通宝VPN{% else %}TongBao VPN{% endcase %}
+        </span>
+      </div>
+      <p class="cta-tagline">
+        {% case lang %}
+          {% when 'en' %}IEPL Private Line · AI Smart Routing · Dedicated Clean IP
+          {% when 'vi' %}Đường truyền IEPL · AI Routing thông minh · IP riêng sạch
+          {% when 'ja' %}IEPL専用回線 · AIスマートルーティング · 専用クリーンIP
+          {% when 'ko' %}IEPL 전용 회선 · AI 스마트 라우팅 · 전용 클린 IP
+          {% when 'tr' %}IEPL Özel Hat · AI Akıllı Yönlendirme · Özel Temiz IP
+          {% else %}IEPL 专线 · AI 智能路由 · 独享纯净 IP
+        {% endcase %}
+      </p>
+      <ul class="cta-features">
+        {% case lang %}
+          {% when 'en' %}
+            <li>Stable access to ChatGPT & Claude</li>
+            <li>Zoom / Google Workspace optimized</li>
+            <li>40–60ms low-latency IEPL line</li>
+          {% when 'vi' %}
+            <li>Ổn định ChatGPT & Claude</li>
+            <li>Tối ưu Zoom / Google Workspace</li>
+            <li>Đường truyền IEPL 40–60ms</li>
+          {% when 'ja' %}
+            <li>ChatGPT・Claude 安定接続</li>
+            <li>Zoom / Google Workspace 最適化</li>
+            <li>低遅延 IEPL 回線 40–60ms</li>
+          {% when 'ko' %}
+            <li>ChatGPT & Claude 안정 연결</li>
+            <li>Zoom / Google Workspace 최적화</li>
+            <li>저지연 IEPL 회선 40–60ms</li>
+          {% when 'tr' %}
+            <li>ChatGPT & Claude kararlı bağlantı</li>
+            <li>Zoom / Google Workspace optimize</li>
+            <li>Düşük gecikmeli IEPL hattı 40–60ms</li>
+          {% else %}
+            <li>稳定访问 ChatGPT / Claude</li>
+            <li>Zoom / Google Workspace 加速</li>
+            <li>IEPL 专线低延迟 40–60ms</li>
+        {% endcase %}
+      </ul>
+      <a class="btn btn--primary sidebar__cta-btn" href="https://www.tongbaovpn.com/{% if lang != 'zh' %}{{ lang }}/{% else %}zh/{% endif %}">
+        {% case lang %}
+          {% when 'en' %}Free Trial →
+          {% when 'vi' %}Dùng Thử Miễn Phí →
+          {% when 'ja' %}無料で試す →
+          {% when 'ko' %}무료 체험 →
+          {% when 'tr' %}Ücretsiz Dene →
+          {% else %}免费试用 →
+        {% endcase %}
+      </a>
+      <p class="cta-note">
+        {% case lang %}
+          {% when 'en' %}For cross-border teams & AI power users
+          {% when 'vi' %}Dành cho nhóm quốc tế & AI
+          {% when 'ja' %}越境ビジネス・AIユーザー向け
+          {% when 'ko' %}해외 업무 팀 & AI 파워 유저용
+          {% when 'tr' %}Sınır ötesi ekipler & AI kullanıcıları için
+          {% else %}专为跨境办公团队 & AI 重度用户设计
+        {% endcase %}
+      </p>
+    </div>
+
+    <!-- Recommended articles below -->
     <div class="sidebar__section">
       <h3 class="sidebar__title">
         {% case lang %}
@@ -161,39 +230,6 @@ layout: default
           {% endif %}
         {% endfor %}
       </ul>
-    </div>
-
-    <div class="sidebar__section sidebar__cta">
-      <h3 class="sidebar__title">
-        {% case lang %}
-          {% when 'en' %}Try TongBao VPN
-          {% when 'vi' %}Dùng thử TongBao VPN
-          {% when 'ja' %}通宝VPNを試す
-          {% when 'ko' %}TongBao VPN 체험
-          {% when 'tr' %}TongBao VPN'i Deneyin
-          {% else %}立即试用通宝VPN
-        {% endcase %}
-      </h3>
-      <p class="sidebar__cta-text">
-        {% case lang %}
-          {% when 'en' %}Dedicated office lines, AI-optimized routing, global access.
-          {% when 'vi' %}Đường truyền văn phòng chuyên dụng, tối ưu AI, kết nối toàn cầu.
-          {% when 'ja' %}オフィス専用回線・AI 最適化ルーティング・グローバルアクセス。
-          {% when 'ko' %}전용 오피스 회선, AI 최적화 라우팅, 글로벌 연결.
-          {% when 'tr' %}Özel ofis hatları, AI optimize yönlendirme, küresel erişim.
-          {% else %}办公专线 + AI 智能路由，跨境工作稳稳的。
-        {% endcase %}
-      </p>
-      <a class="btn btn--primary sidebar__cta-btn" href="https://www.tongbaovpn.com/{% if lang != 'zh' %}{{ lang }}/{% else %}zh/{% endif %}">
-        {% case lang %}
-          {% when 'en' %}Get Started →
-          {% when 'vi' %}Bắt đầu →
-          {% when 'ja' %}今すぐ始める →
-          {% when 'ko' %}시작하기 →
-          {% when 'tr' %}Başla →
-          {% else %}立即开始 →
-        {% endcase %}
-      </a>
     </div>
   </aside>
 </div>

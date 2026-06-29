@@ -2,15 +2,151 @@
 layout: default
 ---
 
+{% assign lang = page.lang | default: 'zh' %}
+{% case lang %}
+  {% when 'en' %}
+    {% assign h_badge = 'TongBao VPN · Office Line Accelerator' %}
+    {% assign h_title = 'TongBao VPN Blog' %}
+    {% assign h_sub   = 'IEPL Private Line · AI Routing for Cross-Border Work' %}
+    {% assign h_cta   = 'Free Trial · Stable Access to ChatGPT & Zoom' %}
+  {% when 'vi' %}
+    {% assign h_badge = 'TongBao VPN · Tăng Tốc Văn Phòng' %}
+    {% assign h_title = 'Blog TongBao VPN' %}
+    {% assign h_sub   = 'Đường truyền IEPL · AI Routing cho công việc xuyên biên' %}
+    {% assign h_cta   = 'Dùng Thử Miễn Phí · Ổn định ChatGPT & Zoom' %}
+  {% when 'ja' %}
+    {% assign h_badge = 'TongBao VPN · オフィス専用加速' %}
+    {% assign h_title = 'TongBao VPN ブログ' %}
+    {% assign h_sub   = 'IEPL専用回線 · AIルーティングで越境ビジネス' %}
+    {% assign h_cta   = '無料試用 · ChatGPT / Zoom 安定接続' %}
+  {% when 'ko' %}
+    {% assign h_badge = 'TongBao VPN · 오피스 전용 가속기' %}
+    {% assign h_title = 'TongBao VPN 블로그' %}
+    {% assign h_sub   = 'IEPL 전용 회선 · AI 라우팅으로 해외 업무' %}
+    {% assign h_cta   = '무료 체험 · ChatGPT / Zoom 안정 연결' %}
+  {% when 'tr' %}
+    {% assign h_badge = 'TongBao VPN · Ofis Hattı Hızlandırıcı' %}
+    {% assign h_title = 'TongBao VPN Blog' %}
+    {% assign h_sub   = 'IEPL Özel Hat · AI Yönlendirme ile Sınır Ötesi İş' %}
+    {% assign h_cta   = 'Ücretsiz Dene · ChatGPT & Zoom Kararlı Bağlantı' %}
+  {% else %}
+    {% assign h_badge = '通宝VPN · 跨境办公加速' %}
+    {% assign h_title = '通宝VPN 博客' %}
+    {% assign h_sub   = 'IEPL 专线 · AI 路由，跨境办公首选' %}
+    {% assign h_cta   = '免费试用 · 稳定连上 ChatGPT / Zoom' %}
+{% endcase %}
+
+{% case lang %}
+  {% when 'en' %}
+    {% assign label_featured = 'Featured' %}
+    {% assign label_min_read = 'min read' %}
+    {% assign label_stats1   = 'Continuously updated' %}
+    {% assign label_stats2   = '6 languages' %}
+    {% assign label_stats3   = 'Real-world tested' %}
+    {% assign cat1 = '🤖 AI Tools' %}
+    {% assign cat2 = '💼 Office VPN' %}
+    {% assign cat3 = '🔌 Line Reviews' %}
+    {% assign cat4 = '📖 Tutorials' %}
+  {% when 'vi' %}
+    {% assign label_featured = 'Nổi Bật' %}
+    {% assign label_min_read = 'phút đọc' %}
+    {% assign label_stats1   = 'Cập nhật liên tục' %}
+    {% assign label_stats2   = '6 ngôn ngữ' %}
+    {% assign label_stats3   = 'Kiểm tra thực tế' %}
+    {% assign cat1 = '🤖 Công Cụ AI' %}
+    {% assign cat2 = '💼 VPN Văn Phòng' %}
+    {% assign cat3 = '🔌 Đánh Giá Đường Truyền' %}
+    {% assign cat4 = '📖 Hướng Dẫn' %}
+  {% when 'ja' %}
+    {% assign label_featured = '注目記事' %}
+    {% assign label_min_read = '分で読む' %}
+    {% assign label_stats1   = '継続更新' %}
+    {% assign label_stats2   = '6言語対応' %}
+    {% assign label_stats3   = '複数地域実測' %}
+    {% assign cat1 = '🤖 AI活用' %}
+    {% assign cat2 = '💼 オフィス回線' %}
+    {% assign cat3 = '🔌 回線レビュー' %}
+    {% assign cat4 = '📖 使い方' %}
+  {% when 'ko' %}
+    {% assign label_featured = '추천 글' %}
+    {% assign label_min_read = '분 읽기' %}
+    {% assign label_stats1   = '지속 업데이트' %}
+    {% assign label_stats2   = '6개 언어' %}
+    {% assign label_stats3   = '다지역 실측' %}
+    {% assign cat1 = '🤖 AI 도구' %}
+    {% assign cat2 = '💼 오피스 VPN' %}
+    {% assign cat3 = '🔌 회선 리뷰' %}
+    {% assign cat4 = '📖 가이드' %}
+  {% when 'tr' %}
+    {% assign label_featured = 'Öne Çıkan' %}
+    {% assign label_min_read = 'dk okuma' %}
+    {% assign label_stats1   = 'Sürekli güncelleme' %}
+    {% assign label_stats2   = '6 dil' %}
+    {% assign label_stats3   = 'Çok bölge testi' %}
+    {% assign cat1 = '🤖 AI Araçları' %}
+    {% assign cat2 = '💼 Ofis VPN' %}
+    {% assign cat3 = '🔌 Hat İncelemeleri' %}
+    {% assign cat4 = '📖 Rehber' %}
+  {% else %}
+    {% assign label_featured = '精选' %}
+    {% assign label_min_read = '分钟' %}
+    {% assign label_stats1   = '持续更新' %}
+    {% assign label_stats2   = '6种语言' %}
+    {% assign label_stats3   = '多地区实测' %}
+    {% assign cat1 = '🤖 AI加速' %}
+    {% assign cat2 = '💼 跨境办公' %}
+    {% assign cat3 = '🔌 专线评测' %}
+    {% assign cat4 = '📖 使用教程' %}
+{% endcase %}
+
 <section class="hero">
-  <img class="hero__img" src="{{ '/assets/images/site-header.svg' | relative_url }}" alt="通宝VPN Blog">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" class="hero__img" role="img" aria-label="{{ h_title }}">
+    <defs>
+      <linearGradient id="tb-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1628"/><stop offset="0.6" stop-color="#0f2040"/><stop offset="1" stop-color="#081e18"/></linearGradient>
+      <radialGradient id="tb-g1" cx="0.85" cy="0.2" r="0.7"><stop offset="0" stop-color="#1a56db" stop-opacity="0.45"/><stop offset="1" stop-color="#1a56db" stop-opacity="0"/></radialGradient>
+      <radialGradient id="tb-g2" cx="0.1" cy="0.9" r="0.6"><stop offset="0" stop-color="#0e9f6e" stop-opacity="0.35"/><stop offset="1" stop-color="#0e9f6e" stop-opacity="0"/></radialGradient>
+      <linearGradient id="tb-acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0e9f6e"/></linearGradient>
+    </defs>
+    <rect width="1600" height="400" fill="url(#tb-bg)"/>
+    <rect width="1600" height="400" fill="url(#tb-g1)"/>
+    <rect width="1600" height="400" fill="url(#tb-g2)"/>
+    <g stroke="#ffffff" stroke-opacity="0.05"><path d="M0 100 H1600 M0 200 H1600 M0 300 H1600 M400 0 V400 M800 0 V400 M1200 0 V400"/></g>
+    <g transform="translate(90,118)">
+      <rect rx="20" width="340" height="40" fill="#1a56db" fill-opacity="0.14" stroke="#1a56db" stroke-opacity="0.5"/>
+      <circle cx="26" cy="20" r="7" fill="#0e9f6e"/>
+      <text x="44" y="26" fill="#dce6ff" font-size="18" font-weight="600" font-family="'Poppins','Noto Sans SC',-apple-system,sans-serif">{{ h_badge }}</text>
+    </g>
+    <text x="88" y="232" fill="#ffffff" font-size="62" font-weight="800" font-family="'Poppins','Noto Sans SC',-apple-system,sans-serif">{{ h_title }}</text>
+    <text x="90" y="290" fill="#bcd0f0" font-size="30" font-weight="600" font-family="'Poppins','Noto Sans SC',-apple-system,sans-serif">{{ h_sub }}</text>
+    <g transform="translate(90,318)">
+      <rect rx="20" width="520" height="42" fill="#0e9f6e" fill-opacity="0.14" stroke="#0e9f6e" stroke-opacity="0.55"/>
+      <text x="22" y="28" fill="#bff3e2" font-size="19" font-weight="700" font-family="'Poppins','Noto Sans SC',-apple-system,sans-serif">🚀 {{ h_cta }}</text>
+    </g>
+    <g transform="translate(1330,200)" fill="none">
+      <circle r="150" stroke="url(#tb-acc)" stroke-width="2" stroke-opacity="0.45"/>
+      <circle r="98" stroke="#1a56db" stroke-width="2" stroke-opacity="0.4"/>
+      <path d="M0 -150 L130 75 L-130 75 Z" stroke="url(#tb-acc)" stroke-width="2" stroke-opacity="0.5"/>
+      <circle cx="0" cy="-150" r="12" fill="#1a56db"/><circle cx="130" cy="75" r="12" fill="#0e9f6e"/><circle cx="-130" cy="75" r="12" fill="#9fb3d6"/>
+      <circle r="18" fill="#0a1628" stroke="url(#tb-acc)" stroke-width="3"/>
+    </g>
+  </svg>
 </section>
 
-<div class="lead">
-  {{ content }}
+<div class="lead">{{ content }}</div>
+
+<div class="stats-bar">
+  <span>✍️ {{ label_stats1 }}</span>
+  <span>🌐 {{ label_stats2 }}</span>
+  <span>🔄 {{ label_stats3 }}</span>
 </div>
 
-{% assign lang = page.lang | default: 'zh' %}
+<div class="cat-nav">
+  <span class="cat-nav__item">{{ cat1 }}</span>
+  <span class="cat-nav__item">{{ cat2 }}</span>
+  <span class="cat-nav__item">{{ cat3 }}</span>
+  <span class="cat-nav__item">{{ cat4 }}</span>
+</div>
+
 {% case lang %}
   {% when 'en' %}{% assign section_title = 'Latest Articles' %}
   {% when 'vi' %}{% assign section_title = 'Bài viết mới nhất' %}
@@ -23,8 +159,31 @@ layout: default
 <h2 class="section-title">{{ section_title }}</h2>
 
 {% assign lang_posts = site.posts | where: "lang", lang %}
+
+{% if lang_posts.size > 0 %}
+{% assign featured_post = lang_posts | first %}
+<article class="post-featured">
+  <a class="post-featured__link" href="{{ featured_post.url | relative_url }}">
+    <div class="post-featured__media">
+      {% if featured_post.image %}<img data-src="{{ featured_post.image | relative_url }}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'/%3E" alt="{{ featured_post.title }}" width="1200" height="630">{% endif %}
+    </div>
+    <div class="post-featured__body">
+      <span class="post-featured__badge">{{ label_featured }}</span>
+      <h2 class="post-featured__title">{{ featured_post.title }}</h2>
+      <p class="post-featured__excerpt">{{ featured_post.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
+      <div class="post-featured__footer">
+        <span class="post-featured__meta">
+          <time>{{ featured_post.date | date: '%Y-%m-%d' }}</time>{% if featured_post.categories.size > 0 %} · {{ featured_post.categories | first }}{% endif %} · {{ featured_post.content | strip_html | strip_newlines | size | divided_by: 600 | plus: 1 }} {{ label_min_read }}
+        </span>
+        <span class="post-featured__more">{% case lang %}{% when 'en' %}Read more →{% when 'vi' %}Đọc thêm →{% when 'ja' %}続きを読む →{% when 'ko' %}더 읽기 →{% when 'tr' %}Devamını oku →{% else %}阅读全文 →{% endcase %}</span>
+      </div>
+    </div>
+  </a>
+</article>
+{% endif %}
+
 <ul class="post-list">
-  {% for post in lang_posts %}
+  {% for post in lang_posts offset:1 %}
   <li class="post-item">
     <a class="post-item__link" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
       <div class="post-item__media">
@@ -32,7 +191,7 @@ layout: default
       </div>
       <div class="post-item__body">
         <div class="post-item__meta">
-          <time>{{ post.date | date: '%Y-%m-%d' }}</time>{% if post.categories.size > 0 %} · {{ post.categories | join: ' / ' }}{% endif %}
+          <time>{{ post.date | date: '%Y-%m-%d' }}</time>{% if post.categories.size > 0 %} · {{ post.categories | join: ' / ' }}{% endif %} · {{ post.content | strip_html | strip_newlines | size | divided_by: 600 | plus: 1 }} {{ label_min_read }}
         </div>
         <h3 class="post-item__title">{{ post.title }}</h3>
         <p class="post-item__excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 62 }}</p>
