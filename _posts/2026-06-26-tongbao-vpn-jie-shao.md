@@ -3,7 +3,7 @@ title: "通宝VPN 是什么？办公专线加速器完整介绍"
 date: 2026-06-26 10:00:00 +0800
 categories: [产品介绍]
 tags: [通宝VPN, 办公专线, AI 加速, IEPL 专线, 产品介绍]
-excerpt: "通宝VPN 完整介绍：专为跨境办公和 AI 重度用户打造，IEPL 专线 + AI 路由 + 独享 IP，告别卡顿和风控。"
+excerpt: "通宝VPN 完整介绍：专为跨境办公和 AI 重度用户打造，IEPL 专线 + AI 路由 + 独享 IP，告别卡顿和连接不稳。"
 description: "通宝VPN 完整介绍：专为跨境办公场景构建，IEPL 国际专线 + AI 智能路由 + 独享纯净 IP，稳定连上 ChatGPT、Zoom、Google Workspace 等海外工具。"
 image: /assets/images/covers/intro.svg
 lang: zh
@@ -28,7 +28,7 @@ speakable_selector:
 通宝VPN 的定位和大众消费 VPN 不同。大众 VPN 主要面向个人娱乐用途，通宝VPN 专注于两个场景：
 
 1. **跨境办公**：Zoom 视频会议、Google Workspace 协作、Slack / Teams 沟通、跨境 SaaS 工具访问
-2. **AI 工具加速**：ChatGPT、Claude、Gemini、GitHub Copilot 等 AI 平台的稳定连接与低风控访问
+2. **AI 工具加速**：ChatGPT、Claude、Gemini、GitHub Copilot 等 AI 平台的稳定接入
 
 ## 三项核心技术
 
