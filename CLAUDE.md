@@ -24,7 +24,7 @@ git remote -v
 # origin  git@github-xlinkwork:xlinkwork-glitch/... (push)
 
 # 若 remote 显示 github.com，立即修正（否则会走 Speedlinc 的默认 key）：
-git remote set-url origin git@github-xlinkwork:xlinkwork-glitch/xlinkwork-glitch-xlinkwork-glitch.github.io.git
+git remote set-url origin git@github-xlinkwork:xlinkwork-glitch/xlinkwork-glitch.github.io.git
 
 # 步骤 3：推送
 git push origin main
