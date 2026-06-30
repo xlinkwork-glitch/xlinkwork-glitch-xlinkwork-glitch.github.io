@@ -1,0 +1,72 @@
+name: IndexNow Submit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build URL list from changed posts
+        id: urls
+        run: |
+          KEY="7651BD70C532234E05D4AB3DEFCC9DF6"
+          SITE="https://xlinkwork-glitch.github.io"
+          HOST="xlinkwork-glitch.github.io"
+
+          # Get added/modified markdown files in _posts/
+          CHANGED=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || true)
+
+          if [ -z "$CHANGED" ]; then
+            echo "No post changes detected, skipping IndexNow submission"
+            echo "skip=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          URLS=()
+          for f in $CHANGED; do
+            basename=$(basename "$f" .md)
+            year="${basename:0:4}"
+            month="${basename:5:2}"
+            day="${basename:8:2}"
+            slug="${basename:11}"
+            URLS+=("\"${SITE}/${year}/${month}/${day}/${slug}/\"")
+          done
+
+          URL_JSON=$(IFS=,; echo "${URLS[*]}")
+          echo "url_json=${URL_JSON}" >> $GITHUB_OUTPUT
+          echo "key=${KEY}" >> $GITHUB_OUTPUT
+          echo "host=${HOST}" >> $GITHUB_OUTPUT
+          echo "site=${SITE}" >> $GITHUB_OUTPUT
+          echo "skip=false" >> $GITHUB_OUTPUT
+          echo "Submitting URLs: ${URL_JSON}"
+
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.skip == 'false'
+        run: |
+          KEY="${{ steps.urls.outputs.key }}"
+          HOST="${{ steps.urls.outputs.host }}"
+          SITE="${{ steps.urls.outputs.site }}"
+          URL_JSON="${{ steps.urls.outputs.url_json }}"
+
+          HTTP_CODE=$(curl -s -o /tmp/resp.json -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"${HOST}\",\"key\":\"${KEY}\",\"keyLocation\":\"${SITE}/${KEY}.txt\",\"urlList\":[${URL_JSON}]}")
+
+          echo "HTTP $HTTP_CODE"
+          cat /tmp/resp.json || true
+
+          if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "202" ]; then
+            echo "IndexNow submission succeeded"
+          else
+            echo "IndexNow submission failed with HTTP $HTTP_CODE"
+            exit 1
+          fi
