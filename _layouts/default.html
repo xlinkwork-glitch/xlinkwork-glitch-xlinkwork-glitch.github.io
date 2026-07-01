@@ -145,10 +145,10 @@
               <span class="lang-dropdown__arrow">▾</span>
             </button>
             <ul class="lang-dropdown__menu">
+              <li><a href="/" onclick="try{localStorage.setItem('tbao_lang','en')}catch(e){}" {% if lang == 'en' %}class="active"{% endif %}>🇺🇸 English</a></li>
               <li><a href="/zh/" onclick="try{localStorage.setItem('tbao_lang','zh')}catch(e){}" {% if lang == 'zh' %}class="active"{% endif %}>🇨🇳 中文</a></li>
               <li><a href="/zh-HK/" onclick="try{localStorage.setItem('tbao_lang','zh-HK')}catch(e){}" {% if lang == 'zh-HK' %}class="active"{% endif %}>🇭🇰 繁體中文(港)</a></li>
               <li><a href="/zh-TW/" onclick="try{localStorage.setItem('tbao_lang','zh-TW')}catch(e){}" {% if lang == 'zh-TW' %}class="active"{% endif %}>🇹🇼 繁體中文(台)</a></li>
-              <li><a href="/" onclick="try{localStorage.setItem('tbao_lang','en')}catch(e){}" {% if lang == 'en' %}class="active"{% endif %}>🇺🇸 English</a></li>
               <li><a href="/ja/" onclick="try{localStorage.setItem('tbao_lang','ja')}catch(e){}" {% if lang == 'ja' %}class="active"{% endif %}>🇯🇵 日本語</a></li>
               <li><a href="/ko/" onclick="try{localStorage.setItem('tbao_lang','ko')}catch(e){}" {% if lang == 'ko' %}class="active"{% endif %}>🇰🇷 한국어</a></li>
               <li><a href="/vi/" onclick="try{localStorage.setItem('tbao_lang','vi')}catch(e){}" {% if lang == 'vi' %}class="active"{% endif %}>🇻🇳 Tiếng Việt</a></li>
