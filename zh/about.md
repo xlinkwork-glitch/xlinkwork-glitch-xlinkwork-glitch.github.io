@@ -3,8 +3,6 @@ layout: page
 title: 关于
 lang: zh
 permalink: /zh/about/
-redirect_from:
-  - /about/
 ---
 
 本站是 **通宝VPN** 的官方博客，分享跨境办公、AI 加速、稳定访问海外平台与远程协作的实用经验。
