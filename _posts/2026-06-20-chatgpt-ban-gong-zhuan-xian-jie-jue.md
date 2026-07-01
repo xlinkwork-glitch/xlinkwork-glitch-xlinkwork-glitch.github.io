@@ -1,6 +1,8 @@
 ---
 title: "ChatGPT 办公场景连不上？IEPL 专线 + AI 路由稳定方案"
 date: 2026-06-20 10:00:00 +0800
+redirect_from:
+  - /2026/06/20/chatgpt-ban-gong-zhuan-xian-jie-jue/
 categories: [使用教程]
 tags: [ChatGPT 加速, 办公专线, AI 路由, 跨境办公, 通宝VPN]
 excerpt: "工作中 ChatGPT 一直转圈、对话中断、频繁验证？讲清跨境办公场景的专线加速方案，IEPL + AI 路由让 GPT 开箱即用。"

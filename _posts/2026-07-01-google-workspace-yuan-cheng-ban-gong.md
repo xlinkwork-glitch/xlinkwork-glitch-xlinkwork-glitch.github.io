@@ -1,6 +1,8 @@
 ---
 title: "Google Workspace 在国内用起来总出问题？通宝VPN 办公专线完全指南"
 date: 2026-07-01 10:00:00 +0800
+redirect_from:
+  - /2026/07/01/google-workspace-yuan-cheng-ban-gong/
 categories: [跨境办公]
 tags: [Google Workspace, Gmail, Google Drive, Google Meet, 通宝VPN, 远程办公]
 lang: zh

@@ -1,6 +1,8 @@
 ---
 title: "Slack、Notion、Figma 跨境协作老断线？通宝VPN 一站解决远程工具链"
 date: 2026-07-02 10:00:00 +0800
+redirect_from:
+  - /2026/07/02/slack-notion-figma-yuan-cheng/
 categories: [跨境办公]
 tags: [Slack, Notion, Figma, 远程协作, 通宝VPN, 跨境办公]
 lang: zh

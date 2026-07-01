@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign lang = page.lang | default: 'zh' %}
+{% assign lang = page.lang | default: 'en' %}
 {% assign lang_posts = site.posts | where: "lang", lang %}
 
 <!-- Breadcrumb JSON-LD -->
@@ -110,7 +110,7 @@ layout: default
     <footer class="post__footer">
       {% if lang == 'en' %}
         <a class="btn btn--primary" href="https://www.tongbaovpn.com/en/">🚀 Try TongBao VPN · Stable Office Lines & AI Access</a>
-        <a class="btn btn--ghost" href="{{ '/en/' | relative_url }}">← Back to Home</a>
+        <a class="btn btn--ghost" href="{{ '/' | relative_url }}">← Back to Home</a>
       {% elsif lang == 'vi' %}
         <a class="btn btn--primary" href="https://www.tongbaovpn.com/vi/">🚀 Dùng thử TongBao VPN · Đường truyền văn phòng ổn định</a>
         <a class="btn btn--ghost" href="{{ '/vi/' | relative_url }}">← Trang Chủ</a>
@@ -125,7 +125,7 @@ layout: default
         <a class="btn btn--ghost" href="{{ '/tr/' | relative_url }}">← Ana Sayfa</a>
       {% else %}
         <a class="btn btn--primary" href="https://www.tongbaovpn.com/zh/">🚀 立即试用通宝VPN · 办公专线稳定加速</a>
-        <a class="btn btn--ghost" href="{{ '/' | relative_url }}">← 返回首页</a>
+        <a class="btn btn--ghost" href="{{ '/zh/' | relative_url }}">← 返回首页</a>
       {% endif %}
     </footer>
   </article>

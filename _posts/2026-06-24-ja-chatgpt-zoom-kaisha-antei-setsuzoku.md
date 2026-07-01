@@ -1,6 +1,7 @@
 ---
 title: "Zoom・ChatGPT が不安定？海外リモートワーク向け専用回線ガイド"
 date: 2026-06-24 10:00:00 +0800
+permalink: /:year/:month/:day/:title/
 categories: [ガイド]
 tags: [Zoom 遅延, ChatGPT, リモートワーク, 通宝VPN]
 excerpt: "海外向けリモートワーク中に Zoom がフリーズ、ChatGPT がタイムアウト。国際回線のパケットロスが原因で、IEPL 専用回線が解決策です。"

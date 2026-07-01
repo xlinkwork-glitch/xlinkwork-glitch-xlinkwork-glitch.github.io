@@ -1,6 +1,8 @@
 ---
 title: "Zoom / Teams 视频会议卡顿？跨境办公专线解决方案"
 date: 2026-06-22 10:00:00 +0800
+redirect_from:
+  - /2026/06/22/zoom-teams-ka-dun-ban-gong-jie-jue/
 categories: [使用教程]
 tags: [Zoom 卡顿, Teams 卡顿, 视频会议, 跨境办公, 通宝VPN]
 excerpt: "Zoom 开会声音断断续续、画面马赛克、频繁掉会？讲清跨境视频会议卡顿的原因，以及用 IEPL 专线彻底解决的方案。"

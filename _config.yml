@@ -3,7 +3,7 @@ description: >-
   通宝VPN 官方博客：办公专线 + AI 加速一站搞定。稳定连上 ChatGPT、Claude、Zoom、Google Workspace，跨境办公、商务出行、远程协作全场景覆盖。
 url: "https://xlinkwork-glitch.github.io"
 baseurl: ""
-lang: zh-CN
+lang: en
 
 author:
   name: "TongBao VPN"
@@ -25,6 +25,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 exclude:
   - Gemfile
@@ -39,6 +40,7 @@ defaults:
     values:
       layout: post
       lang: zh
+      permalink: /zh/:year/:month/:day/:title/
   - scope:
       path: ""
       type: pages

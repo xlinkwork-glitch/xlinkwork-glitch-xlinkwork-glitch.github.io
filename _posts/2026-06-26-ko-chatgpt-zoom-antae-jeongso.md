@@ -1,6 +1,7 @@
 ---
 title: "Zoom·ChatGPT 불안정? 해외 원격근무 전용 회선 가이드"
 date: 2026-06-26 10:00:00 +0800
+permalink: /:year/:month/:day/:title/
 categories: [튜토리얼]
 tags: [Zoom 지연, ChatGPT, 원격근무, TongBao VPN]
 excerpt: "해외 연결 중 Zoom 화면이 끊기고 ChatGPT 응답이 중단되나요? 국제 회선 패킷 손실이 원인이며, IEPL 전용 회선이 해결책입니다."

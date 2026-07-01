@@ -1,6 +1,8 @@
 ---
 title: "通宝VPN 是什么？办公专线加速器完整介绍"
 date: 2026-06-26 10:00:00 +0800
+redirect_from:
+  - /2026/06/26/tongbao-vpn-jie-shao/
 categories: [产品介绍]
 tags: [通宝VPN, 办公专线, AI 加速, IEPL 专线, 产品介绍]
 excerpt: "通宝VPN 完整介绍：专为跨境办公和 AI 重度用户打造，IEPL 专线 + AI 路由 + 独享 IP，告别卡顿和连接不稳。"
