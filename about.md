@@ -1,11 +1,12 @@
 ---
 layout: page
-title: 关于
+title: About
+lang: en
 permalink: /about/
 ---
 
-本站是 **通宝VPN** 的官方博客，分享跨境办公、AI 加速、稳定访问海外平台与远程协作的实用经验。
+This blog is the official blog of **TongBao VPN**, sharing practical tips on cross-border remote work, AI acceleration, and stable access to international platforms and remote collaboration tools.
 
-- **官方网站**：[https://www.tongbaovpn.com/zh/](https://www.tongbaovpn.com/zh/)
+- **Official website**: [https://www.tongbaovpn.com/](https://www.tongbaovpn.com/)
 
-通宝VPN 是一款专为跨境办公与 AI 重度用户打造的全球网络加速器，采用 IEPL 国际专线 + AI 智能路由 + 独享纯净 IP，帮助你稳定连上 ChatGPT、Claude、Gemini、Zoom、Google Workspace 等海外平台，实现低延迟、零掉线的跨境工作体验。
+TongBao VPN is a global network accelerator built for cross-border remote work and heavy AI users. Powered by IEPL international private lines, AI-driven smart routing, and dedicated clean IPs, it delivers stable access to ChatGPT, Claude, Gemini, Zoom, Google Workspace and other international platforms — for a low-latency, zero-dropout cross-border work experience.
