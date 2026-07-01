@@ -45,3 +45,59 @@ tr:
     url: /about/
   - title: Başla
     url: https://www.tongbaovpn.com/tr/
+
+zh-HK:
+  - title: 首頁
+    url: /zh-HK/
+  - title: 關於
+    url: /about/
+  - title: 立即試用
+    url: https://www.tongbaovpn.com/zh-HK/
+
+zh-TW:
+  - title: 首頁
+    url: /zh-TW/
+  - title: 關於
+    url: /about/
+  - title: 立即試用
+    url: https://www.tongbaovpn.com/zh-TW/
+
+id:
+  - title: Beranda
+    url: /id/
+  - title: Tentang
+    url: /about/
+  - title: Mulai Sekarang
+    url: https://www.tongbaovpn.com/id/
+
+ru:
+  - title: Главная
+    url: /ru/
+  - title: О нас
+    url: /about/
+  - title: Начать
+    url: https://www.tongbaovpn.com/ru/
+
+de:
+  - title: Startseite
+    url: /de/
+  - title: Über uns
+    url: /about/
+  - title: Jetzt starten
+    url: https://www.tongbaovpn.com/de/
+
+nl:
+  - title: Home
+    url: /nl/
+  - title: Over ons
+    url: /about/
+  - title: Nu starten
+    url: https://www.tongbaovpn.com/nl/
+
+fr:
+  - title: Accueil
+    url: /fr/
+  - title: À propos
+    url: /about/
+  - title: Commencer
+    url: https://www.tongbaovpn.com/fr/

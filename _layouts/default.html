@@ -5,6 +5,13 @@
 {% elsif lang == 'vi' %}{% assign html_lang = 'vi' %}
 {% elsif lang == 'tr' %}{% assign html_lang = 'tr' %}
 {% elsif lang == 'en' %}{% assign html_lang = 'en' %}
+{% elsif lang == 'zh-HK' %}{% assign html_lang = 'zh-HK' %}
+{% elsif lang == 'zh-TW' %}{% assign html_lang = 'zh-TW' %}
+{% elsif lang == 'id' %}{% assign html_lang = 'id' %}
+{% elsif lang == 'ru' %}{% assign html_lang = 'ru' %}
+{% elsif lang == 'de' %}{% assign html_lang = 'de' %}
+{% elsif lang == 'nl' %}{% assign html_lang = 'nl' %}
+{% elsif lang == 'fr' %}{% assign html_lang = 'fr' %}
 {% else %}{% assign html_lang = 'zh-CN' %}{% endif %}
 <html lang="{{ html_lang }}">
 <head>
@@ -20,10 +27,17 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="zh" href="https://xlinkwork-glitch.github.io/" />
   <link rel="alternate" hreflang="en" href="https://xlinkwork-glitch.github.io/en/" />
-  <link rel="alternate" hreflang="vi" href="https://xlinkwork-glitch.github.io/vi/" />
+  <link rel="alternate" hreflang="zh-HK" href="https://xlinkwork-glitch.github.io/zh-HK/" />
+  <link rel="alternate" hreflang="zh-TW" href="https://xlinkwork-glitch.github.io/zh-TW/" />
   <link rel="alternate" hreflang="ja" href="https://xlinkwork-glitch.github.io/ja/" />
   <link rel="alternate" hreflang="ko" href="https://xlinkwork-glitch.github.io/ko/" />
+  <link rel="alternate" hreflang="vi" href="https://xlinkwork-glitch.github.io/vi/" />
+  <link rel="alternate" hreflang="id" href="https://xlinkwork-glitch.github.io/id/" />
   <link rel="alternate" hreflang="tr" href="https://xlinkwork-glitch.github.io/tr/" />
+  <link rel="alternate" hreflang="ru" href="https://xlinkwork-glitch.github.io/ru/" />
+  <link rel="alternate" hreflang="de" href="https://xlinkwork-glitch.github.io/de/" />
+  <link rel="alternate" hreflang="nl" href="https://xlinkwork-glitch.github.io/nl/" />
+  <link rel="alternate" hreflang="fr" href="https://xlinkwork-glitch.github.io/fr/" />
   <link rel="alternate" hreflang="x-default" href="https://xlinkwork-glitch.github.io/en/" />
 
   <!-- JSON-LD -->
@@ -58,6 +72,38 @@
   </script>
   {% endif %}
 
+  <script>
+  (function(){
+    var K='tbao_lang';
+    var langs=['zh-HK','zh-TW','en','ja','ko','vi','id','tr','ru','de','nl','fr'];
+    var p=window.location.pathname;
+    for(var i=0;i<langs.length;i++){
+      if(p.startsWith('/'+langs[i]+'/') || p==='/'+langs[i]){
+        try{localStorage.setItem(K,langs[i]);}catch(e){}
+        return;
+      }
+    }
+    if(p!=='/'&&p!=='/index.html')return;
+    var s;try{s=localStorage.getItem(K);}catch(e){}
+    if(s&&langs.indexOf(s)!==-1){window.location.replace('/'+s+'/');return;}
+    var b=(navigator.language||'zh').toLowerCase();
+    var m=null;
+    if(b==='zh-hk'||b==='zh-hant-hk')m='zh-HK';
+    else if(b==='zh-tw'||b==='zh-hant-tw'||b==='zh-hant')m='zh-TW';
+    else if(b.startsWith('zh'))m=null;
+    else if(b.startsWith('ja'))m='ja';
+    else if(b.startsWith('ko'))m='ko';
+    else if(b.startsWith('vi'))m='vi';
+    else if(b.startsWith('id'))m='id';
+    else if(b.startsWith('tr'))m='tr';
+    else if(b.startsWith('ru'))m='ru';
+    else if(b.startsWith('de'))m='de';
+    else if(b.startsWith('nl'))m='nl';
+    else if(b.startsWith('fr'))m='fr';
+    else if(b.startsWith('en'))m='en';
+    if(m){try{localStorage.setItem(K,m);}catch(e){}window.location.replace('/'+m+'/');}
+  })();
+  </script>
   <script src="{{ '/assets/js/lazy-load.js' | relative_url }}" defer></script>
   <style>@media(prefers-color-scheme:dark){:root{--bg:#0f1525;--fg:#c7d2e6;--muted:#92a0bb;--heading:#eaf0fb;--accent:#7db0ff;--accent-2:#4fd6ac;--card:#16203a;--border:#27324d;--header-bg:rgba(11,17,32,.9);--code-bg:#16203a;--shadow:0 10px 30px rgba(0,0,0,.35)}}</style>
 </head>
@@ -81,22 +127,36 @@
           <div class="lang-dropdown">
             <button class="lang-dropdown__btn" aria-label="Switch language">
               {% case lang %}
-                {% when 'en' %}🌐 EN
-                {% when 'vi' %}🌐 Tiếng Việt
-                {% when 'ja' %}🌐 日本語
-                {% when 'ko' %}🌐 한국어
-                {% when 'tr' %}🌐 Türkçe
-                {% else %}🌐 中文
+                {% when 'en' %}🇺🇸 EN
+                {% when 'vi' %}🇻🇳 Tiếng Việt
+                {% when 'ja' %}🇯🇵 日本語
+                {% when 'ko' %}🇰🇷 한국어
+                {% when 'tr' %}🇹🇷 Türkçe
+                {% when 'zh-HK' %}🇭🇰 繁體中文(港)
+                {% when 'zh-TW' %}🇹🇼 繁體中文(台)
+                {% when 'id' %}🇮🇩 Bahasa Indonesia
+                {% when 'ru' %}🇷🇺 Русский
+                {% when 'de' %}🇩🇪 Deutsch
+                {% when 'nl' %}🇳🇱 Nederlands
+                {% when 'fr' %}🇫🇷 Français
+                {% else %}🇨🇳 中文
               {% endcase %}
               <span class="lang-dropdown__arrow">▾</span>
             </button>
             <ul class="lang-dropdown__menu">
-              <li><a href="/" {% if lang == 'zh' %}class="active"{% endif %}>🇨🇳 中文</a></li>
-              <li><a href="/en/" {% if lang == 'en' %}class="active"{% endif %}>🇺🇸 English</a></li>
-              <li><a href="/vi/" {% if lang == 'vi' %}class="active"{% endif %}>🇻🇳 Tiếng Việt</a></li>
-              <li><a href="/ja/" {% if lang == 'ja' %}class="active"{% endif %}>🇯🇵 日本語</a></li>
-              <li><a href="/ko/" {% if lang == 'ko' %}class="active"{% endif %}>🇰🇷 한국어</a></li>
-              <li><a href="/tr/" {% if lang == 'tr' %}class="active"{% endif %}>🇹🇷 Türkçe</a></li>
+              <li><a href="/" onclick="try{localStorage.setItem('tbao_lang','zh')}catch(e){}" {% if lang == 'zh' %}class="active"{% endif %}>🇨🇳 中文</a></li>
+              <li><a href="/zh-HK/" onclick="try{localStorage.setItem('tbao_lang','zh-HK')}catch(e){}" {% if lang == 'zh-HK' %}class="active"{% endif %}>🇭🇰 繁體中文(港)</a></li>
+              <li><a href="/zh-TW/" onclick="try{localStorage.setItem('tbao_lang','zh-TW')}catch(e){}" {% if lang == 'zh-TW' %}class="active"{% endif %}>🇹🇼 繁體中文(台)</a></li>
+              <li><a href="/en/" onclick="try{localStorage.setItem('tbao_lang','en')}catch(e){}" {% if lang == 'en' %}class="active"{% endif %}>🇺🇸 English</a></li>
+              <li><a href="/ja/" onclick="try{localStorage.setItem('tbao_lang','ja')}catch(e){}" {% if lang == 'ja' %}class="active"{% endif %}>🇯🇵 日本語</a></li>
+              <li><a href="/ko/" onclick="try{localStorage.setItem('tbao_lang','ko')}catch(e){}" {% if lang == 'ko' %}class="active"{% endif %}>🇰🇷 한국어</a></li>
+              <li><a href="/vi/" onclick="try{localStorage.setItem('tbao_lang','vi')}catch(e){}" {% if lang == 'vi' %}class="active"{% endif %}>🇻🇳 Tiếng Việt</a></li>
+              <li><a href="/id/" onclick="try{localStorage.setItem('tbao_lang','id')}catch(e){}" {% if lang == 'id' %}class="active"{% endif %}>🇮🇩 Bahasa Indonesia</a></li>
+              <li><a href="/tr/" onclick="try{localStorage.setItem('tbao_lang','tr')}catch(e){}" {% if lang == 'tr' %}class="active"{% endif %}>🇹🇷 Türkçe</a></li>
+              <li><a href="/ru/" onclick="try{localStorage.setItem('tbao_lang','ru')}catch(e){}" {% if lang == 'ru' %}class="active"{% endif %}>🇷🇺 Русский</a></li>
+              <li><a href="/de/" onclick="try{localStorage.setItem('tbao_lang','de')}catch(e){}" {% if lang == 'de' %}class="active"{% endif %}>🇩🇪 Deutsch</a></li>
+              <li><a href="/nl/" onclick="try{localStorage.setItem('tbao_lang','nl')}catch(e){}" {% if lang == 'nl' %}class="active"{% endif %}>🇳🇱 Nederlands</a></li>
+              <li><a href="/fr/" onclick="try{localStorage.setItem('tbao_lang','fr')}catch(e){}" {% if lang == 'fr' %}class="active"{% endif %}>🇫🇷 Français</a></li>
             </ul>
           </div>
         </div>
@@ -125,6 +185,24 @@
       {% elsif lang == 'tr' %}
         <p class="site-footer__brand">TongBao VPN · Özel Ofis Hattı · AI Hızlandırma · Küresel Erişim</p>
         <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/tr/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'zh-HK' or lang == 'zh-TW' %}
+        <p class="site-footer__brand">通宝VPN · 辦公專線加速 · AI 全速暢連 · 全球皆可觸達</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} 通宝VPN · <a href="https://www.tongbaovpn.com/{{ lang }}/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'id' %}
+        <p class="site-footer__brand">TongBao VPN · Jalur Kantor Khusus · Akselerasi AI · Akses Global</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/id/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'ru' %}
+        <p class="site-footer__brand">TongBao VPN · Выделенная офисная линия · Полная AI-скорость · Глобальный доступ</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/ru/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'de' %}
+        <p class="site-footer__brand">TongBao VPN · Dedizierte Büro-Leitung · KI-Volldampf · Globaler Zugang</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/de/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'nl' %}
+        <p class="site-footer__brand">TongBao VPN · Dedicated kantoorlijn · AI op volle snelheid · Mondiale toegang</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/nl/">www.tongbaovpn.com</a></p>
+      {% elsif lang == 'fr' %}
+        <p class="site-footer__brand">TongBao VPN · Ligne de bureau dédiée · Pleine vitesse IA · Accès mondial</p>
+        <p class="site-footer__copy">© {{ site.time | date: '%Y' }} TongBao VPN · <a href="https://www.tongbaovpn.com/fr/">www.tongbaovpn.com</a></p>
       {% else %}
         <p class="site-footer__brand">通宝VPN · 办公专线加速 · AI 全速畅连 · 全球皆可触达</p>
         <p class="site-footer__copy">© {{ site.time | date: '%Y' }} 通宝VPN · <a href="https://www.tongbaovpn.com/zh/">www.tongbaovpn.com</a></p>
